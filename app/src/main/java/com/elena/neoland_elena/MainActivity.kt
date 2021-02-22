@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             if(binding.editText.text.toString().contentEquals(usuarioValido.email)) {
                 val intent = Intent(this, ProfileActivity::class.java)
                 intent.putExtra(ProfileActivity.VALUE_1, binding.editText.text.toString())
+
                 startActivity(intent)
 
             } else {
