@@ -7,7 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class StudentsAdapter(var listaStudents : List<Student>) : RecyclerView.Adapter<StudentsAdapter.PersonajesViewHolder>()  {
+class StudentAdapter : RecyclerView.Adapter<StudentAdapter.PersonajesViewHolder>()  {
+    var listaStudents = listOf<Student>()
 
     class PersonajesViewHolder(val root: View, val  imageView: ImageView, val textViewNombre: TextView, val textViewApellido: TextView, val textViewEmail: TextView) : RecyclerView.ViewHolder(root)
 
@@ -33,6 +34,10 @@ class StudentsAdapter(var listaStudents : List<Student>) : RecyclerView.Adapter<
 
 
 
+    }
+    fun updateData(studentList : List<Student>){
+        this.listaStudents = studentList
+        notifyDataSetChanged()
     }
 
 

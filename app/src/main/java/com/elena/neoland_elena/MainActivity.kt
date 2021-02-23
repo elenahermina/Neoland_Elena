@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
@@ -12,13 +11,14 @@ import com.elena.neoland_elena.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+
     companion object {
         const val EMAIL = "EMAIL"
     }
-    val usuarioValido = UsuariosLogados("elena@neoland.com")
+    val usuarioValido = RegisteredUser("elena@neoland.com")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(textContent: Editable?) {
                 textContent?.let {
-                    binding.checkBox.isEnabled= binding.editText.text.contains("@") &&  binding.editText.text.contains(".")
+                    binding.checkBox.isEnabled = textContent.contains("@") &&  textContent.contains(".")
                 }
             }
         } )
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             if (binding.checkBox.isEnabled && binding.checkBox.isChecked){
-                guardarPreferencias(binding.button.text.toString())
+                guardarPreferencias(binding.editText.text.toString())
             } else {
                 guardarPreferencias("")
             }
