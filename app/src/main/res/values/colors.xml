@@ -8,10 +8,4 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorRojoNeoland">#EE565B</color>
-    <color name="colorBlancoNeoland">#FFFFFFFF</color>
-    <color name="colorPrimary">#FFFFFFFF</color>
-    <color name="colorPrimaryDark">#353C4C</color>
-    <color name="colorAccent">#EE565B</color>
-
 </resources>
